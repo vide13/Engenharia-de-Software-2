@@ -41,11 +41,11 @@ public class Registry {
         return instance;
     }
 
-    public void setPath(java.lang.String path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
-    public void setConnectionString(java.lang.String connectionString) {
+    public void setConnectionString(String connectionString) {
         this.connectionString = connectionString;
     }
 
