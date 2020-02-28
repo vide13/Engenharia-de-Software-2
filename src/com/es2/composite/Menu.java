@@ -2,7 +2,7 @@ package com.es2.composite;
 
 public abstract class Menu {
 
-    String label;
+    private String label;
 
     public String getLabel() {
         return label;

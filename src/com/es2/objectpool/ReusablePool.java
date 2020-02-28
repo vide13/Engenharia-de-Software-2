@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class ReusablePool {
     private static ReusablePool instance = null;
     private int maxPoolSize;
-    private ArrayList<HttpURLConnection> usedConnection, freeConnection;
+    private ArrayList<HttpURLConnection> usedConnection;
+    private ArrayList<HttpURLConnection>freeConnection;
 
     private ReusablePool() {
         usedConnection = new ArrayList<>();
