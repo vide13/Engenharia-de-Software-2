@@ -1,8 +1,8 @@
 package com.es2.factorymethod;
 
-public class Computer extends Object implements Product {
+public class Computer implements Product {
 
-    String brand = null;
+    private String brand = null;
 
     protected Computer() {}
 

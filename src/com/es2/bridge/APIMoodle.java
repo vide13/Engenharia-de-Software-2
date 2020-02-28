@@ -15,7 +15,7 @@ public class APIMoodle implements APIServiceInterface {
 
     @Override
     public String getContent(String contentId) {
-        if (contentId.equals("0")) {
+        if ("0".equals(contentId)) {
             StringBuilder concatenatedHax = new StringBuilder();
             for (Map.Entry<String, String> entry : content.entrySet()) {
                 concatenatedHax.append(entry.getValue());

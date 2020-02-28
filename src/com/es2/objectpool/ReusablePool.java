@@ -5,9 +5,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ReusablePool extends Object {
+public class ReusablePool {
     private static ReusablePool instance = null;
-    int maxPoolSize;
+    private int maxPoolSize;
     private ArrayList<HttpURLConnection> usedConnection, freeConnection;
 
     private ReusablePool() {

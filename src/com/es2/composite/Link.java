@@ -2,10 +2,9 @@ package com.es2.composite;
 
 public class Link extends Menu {
 
-    String url;
 
-    public Link(){
-    }
+    private String url;
+
     public String getURL(){
         return url;
     }

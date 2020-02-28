@@ -5,8 +5,8 @@ package com.es2.singleton;
  */
 public class Registry {
 
-    String path = null;
-    String connectionString = null;
+    private String path = null;
+    private String connectionString = null;
     private static volatile Registry instance = null;
 
     private Registry() {}

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class APIRequest {
-    protected final HashMap<java.lang.String, APIServiceInterface> services;
+    protected final HashMap<String, APIServiceInterface> services;
 
     public APIRequest() {
         services = new HashMap<>();
@@ -16,12 +16,15 @@ public class APIRequest {
         return uuid.toString();
     }
 
-    public String getContent(java.lang.String serviceId, java.lang.String contentId) throws ServiceNotFoundException {
-        if (services.get(serviceId) == null) throw new ServiceNotFoundException();
+    public String getContent(String serviceId, String contentId) throws ServiceNotFoundException {
+        if (services.get(serviceId) == null)
+            throw new ServiceNotFoundException();
         return services.get(serviceId).getContent(contentId);
     }
 
-    public String setContent(java.lang.String serviceId, java.lang.String content) {
+    public String setContent(String serviceId, String content) throws ServiceNotFoundException{
+        if (services.get(serviceId) == null)
+            throw new ServiceNotFoundException();
         return services.get(serviceId).setContent(content);
     }
 }

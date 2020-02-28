@@ -4,9 +4,6 @@ public abstract class Menu {
 
     String label;
 
-    public Menu() {
-    }
-
     public String getLabel() {
         return label;
     }
