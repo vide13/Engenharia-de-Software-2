@@ -9,7 +9,7 @@ public class ReusablePool {
     private static ReusablePool instance = null;
     private int maxPoolSize;
     private ArrayList<HttpURLConnection> usedConnection;
-    private ArrayList<HttpURLConnection>freeConnection;
+    private ArrayList<HttpURLConnection> freeConnection;
 
     private ReusablePool() {
         usedConnection = new ArrayList<>();
@@ -33,14 +33,14 @@ public class ReusablePool {
             throw new PoolExhaustedException();
         }
         if (freeConnection.size() > 0) {
-            for (HttpURLConnection e : freeConnection) {
-                freeConnection.remove(e);
-                usedConnection.add(e);
-                e.connect();
-                return (e);
-            }
+            HttpURLConnection conn = freeConnection.get(0);
+            freeConnection.remove(conn);
+            usedConnection.add(conn);
+            conn.connect();
+            return conn;
         }
-        HttpURLConnection urlConnection = (HttpURLConnection) new URL("http://ipv.pt").openConnection();
+        HttpURLConnection urlConnection =
+            (HttpURLConnection) new URL("http://ipv.pt").openConnection();
         usedConnection.add(urlConnection);
         return urlConnection;
     }
