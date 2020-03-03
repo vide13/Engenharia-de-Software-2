@@ -12,9 +12,8 @@ public class CommonWordsValidator extends Decorator {
     }
 
     @Override
-    public void auth(String username, String password) throws AuthException {
-        if (!"admin".equals(username)) throw new AuthException();
-        if (!"admin".equals(password)) throw new AuthException();
+    public void auth(String username, String password) throws AuthException, IOException {
+        auth.auth(username, password);
     }
 
     public String getHttpRequest(String word) throws IOException {
