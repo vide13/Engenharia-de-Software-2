@@ -4,10 +4,10 @@ import java.io.IOException;
 
 public class Decorator implements AuthInterface {
 
-    AuthInterface auth;
+    private AuthInterface auth;
 
     public Decorator(AuthInterface auth) {
-        auth = new Auth();
+        this.auth = auth;
     }
 
     public void auth(String username, String password) throws AuthException, IOException {
