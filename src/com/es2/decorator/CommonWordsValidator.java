@@ -13,6 +13,7 @@ public class CommonWordsValidator extends Decorator {
 
     @Override
     public void auth(String username, String password) throws AuthException, IOException {
+        if (this.getHttpRequest(password).contains("Password Existe Na BD")) throw new AuthException();
         auth.auth(username, password);
     }
 
@@ -22,6 +23,7 @@ public class CommonWordsValidator extends Decorator {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB;     rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 (.NET CLR 3.5.30729)");
         conn.setRequestMethod("GET");
+        if (conn.getResponseCode() == 404) return "Password Existe Na BD";
         BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String line;
         while ((line = rd.readLine()) != null) {
