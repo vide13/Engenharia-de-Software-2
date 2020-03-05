@@ -9,9 +9,7 @@ public class Logging extends Decorator {
     }
 
     @Override public void auth(String username, String password) throws AuthException, IOException {
-        if (!"admin".equals(username))
-            throw new AuthException();
-        if (!"admin".equals(password))
-            throw new AuthException();
+        auth.auth(username, password);
+        System.out.println("(" + System.currentTimeMillis() + "),auth()");
     }
 }
