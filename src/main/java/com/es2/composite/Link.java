@@ -2,10 +2,9 @@ package com.es2.composite;
 
 public class Link extends Menu {
 
-
     private String url;
 
-    public String getURL(){
+    public String getURL() {
         return url;
     }
 
@@ -13,8 +12,7 @@ public class Link extends Menu {
         url = URL;
     }
 
-    @Override
-    public void showOptions() {
+    @Override public void showOptions() {
         System.out.println(label);
         System.out.println(url);
     }
