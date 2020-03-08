@@ -5,10 +5,13 @@ import com.es2.bridge.ServiceNotFoundException;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class BridgePatternTest {
-    APIRequest req;
+    private APIRequest req;
 
     @DisplayName("Test if the exception is thrown for not existing services get") @Test
     public void testServiceNotFoundExceptionThrown() {
